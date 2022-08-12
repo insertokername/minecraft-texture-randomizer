@@ -1,14 +1,14 @@
-#version 150
+#version 110
 
-in vec4 Position;
+attribute vec4 Position;
 
 uniform mat4 ProjMat;
 uniform vec2 OutSize;
 
 uniform float SubPixelShift;
 
-out vec2 texCoord;
-out vec4 posPos;
+varying vec2 texCoord;
+varying vec4 posPos;
 
 void main() {
     vec4 outPos = ProjMat * vec4(Position.xy, 0.0, 1.0);

@@ -1,9 +1,9 @@
-#version 150
+#version 110
 
 uniform sampler2D DiffuseSampler;
 
-in vec2 texCoord;
-in vec2 oneTexel;
+varying vec2 texCoord;
+varying vec2 oneTexel;
 
 uniform vec2 InSize;
 
@@ -24,10 +24,8 @@ const float ScanlineOffset = 0.0;
 const vec3 Floor = vec3(0.05, 0.05, 0.05);
 const vec3 Power = vec3(0.8, 0.8, 0.8);
 
-out vec4 fragColor;
-
 void main() {
-    vec4 InTexel = texture(DiffuseSampler, texCoord);
+    vec4 InTexel = texture2D(DiffuseSampler, texCoord);
 
     vec2 PinUnitCoord = texCoord * Two.xy - One.xy;
     float PincushionR2 = pow(length(PinUnitCoord), 2.0);
@@ -62,5 +60,5 @@ void main() {
 
     ScanlineTexel.rgb = pow(ScanlineTexel.rgb, Power);
 
-    fragColor = vec4(ScanlineTexel.rgb, 1.0);
+    gl_FragColor = vec4(ScanlineTexel.rgb, 1.0);
 }

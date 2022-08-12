@@ -3,7 +3,7 @@ import random
 import shutil
 Older=["1"]
 ResourcePath=r"C:\Users\{username}\AppData\Roaming\.minecraft\resourcepacks".format(username=os.getlogin())
-ScriptLocation=os.getcwd().removesuffix("cringe test.py")+"\\RANDOMIZED_TEXTURE"
+ScriptLocation=os.getcwd().removesuffix("randomizer.py")+"\\RANDOMIZED_TEXTURE"
 input("***IF THIS IS NOT THE FIRST SHUFFLE PLEASE MAKE SURE TO UNLOAD THE TEXTURE PACK BEFORE CONTINUING*** \n\nPress enter to begin")
 if os.path.exists(ResourcePath+ "\\"+ "RANDOMIZED_TEXTURE")==False:
     print("Copying files this may take 1s~1min...\n")
@@ -31,6 +31,7 @@ else:
 for i in range(0, len(MODIFIEDpath)):
     if MODIFIEDpath[i] not in AvailableCategories:
         input('\nInvalid category\n\n Press enter to close')
+        exit()
 if MODIFIEDpath==['']:
     input("  Process cancelled... \n  (press enter to exit)")
     exit()
